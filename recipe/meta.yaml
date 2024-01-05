@@ -1,5 +1,5 @@
 {% set name = "bioregistry" %}
-{% set version = "0.10.105" %}
+{% set version = "0.10.108" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bioregistry-{{ version }}.tar.gz
-  sha256: 28c5aa2452ed985094d18a229cdad82b2d2f2a48e575a25abe04d27f4f4818c0
+  sha256: d43eaa26efb64b547259905e4b9fc47fdcd0aeba4d5e920959aa0cf87b016e2e
 
 build:
   noarch: python
