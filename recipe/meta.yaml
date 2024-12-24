@@ -6,24 +6,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bioregistry-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/bioregistry-{{ version }}.tar.gz
   sha256: 28c5aa2452ed985094d18a229cdad82b2d2f2a48e575a25abe04d27f4f4818c0
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
   entry_points:
     - bioregistry = bioregistry.cli:main
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
     - wheel
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - requests
     - tqdm
     - pystow >=0.1.13
@@ -39,6 +39,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/biopragmatics/bioregistry
